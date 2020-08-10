@@ -6,20 +6,37 @@ import App from "./App";
 const tren = [
   {
     pregunta: "Which gene is the involved on Replication of SHH-1",
-    incisos: [" A: Uno", " B: Dos", " C: Tres"]
+    incisos: [
+      ["A", ": Uno"],
+      ["B", ": Dos"],
+      ["C", ": Tres"]
+    ]
   },
   {
     pregunta: "What does OBGYN means?",
-    incisos: [" A: Uno-2", " B: Dos-3", " C: Tres-4"]
+    incisos: [
+      ["A", ": Uno-dos"],
+      ["B", ": Dos-dos"],
+      ["C", ": Tres-dos"]
+    ]
   },
 
   {
     pregunta: "Mention Cushing Triad",
-    incisos: [" A: Uno-3", " B: Dos-3", " C: Tres-3"]
+    incisos: [
+      ["A", ": Uno-tres"],
+      ["B", ": Dos-tres"],
+      ["C", ": Tres-tres"]
+    ]
   },
   {
     pregunta: "How many glucose a 1ml of blood of a new-born baby has?",
-    incisos: [" A: Uno-4", " B: Dos-4", " C: Tres-4", "D: Cuatro-4"]
+    incisos: [
+      ["A", ": Uno"],
+      ["B", ": Dos"],
+      ["C", ": Tres"],
+      ["D", ": Cuatro"]
+    ]
   }
 ];
 
@@ -30,7 +47,12 @@ const Prueba = () => {
     var count = contador;
 
     var incisos = tren[count].incisos.map((item, index) => {
-      return <li>{item}</li>;
+      return (
+        <div>
+          <input type="radio" name="respuesta" value={item[0]} key={item[0]} />{" "}
+          {item}
+        </div>
+      );
     });
 
     return incisos;
@@ -40,7 +62,7 @@ const Prueba = () => {
     <div>
       <div>Hola</div>
       <p>{tren[contador].pregunta}</p>
-      <ul>{mapear(contador)}</ul>
+      <form>{mapear(contador)}</form>
       {/* {The function above works automatically, because, each
       time that you re-render, that function will trigger automatically,
       rememeber that his happens because we put the function name and the parenthesis
